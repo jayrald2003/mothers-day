@@ -1,0 +1,123 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Change dark color to a soft pastel pink */
+  --dark-color: #FFC0CB; /* pastel pink */
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+
+  /* Update background gradients to soft floral/pastel colors */
+  background-image: 
+    radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), 
+    radial-gradient(ellipse at bottom, var(--dark-color), rgba(255, 192, 203, 0.2)), /* lighter pink */
+    repeating-linear-gradient(220deg, #FFD1DC 0px, #FFD1DC 19px, transparent 19px, transparent 22px),  /* soft pink stripes */
+    repeating-linear-gradient(189deg, #FFB6C1 0px, #FFB6C1 19px, transparent 19px, transparent 22px),  /* light pink */
+    repeating-linear-gradient(148deg, #FF69B4 0px, #FF69B4 19px, transparent 19px, transparent 22px),  /* hot pink */
+    linear-gradient(90deg, #FFF0F5, #FFE4E1); /* lavender blush to misty rose */
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #8B0000; /* dark red for warm text */
+  font-family: 'Courier New', Courier, monospace;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+  text-shadow: 0 0 20px #FF69B4; /* pink glow */
+  letter-spacing: 0px;
+}
+
+@media (min-width: 500px) {
+  .title {
+    letter-spacing: 20px;
+  }
+}
+
+@keyframes typing {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Terapkan animasi dengan delay */
+.title span {
+  opacity: 0;
+  animation: typing 1s ease forwards;
+  animation-delay: var(--delay);
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  border: none;
+  width: 15em;
+  height: 5em;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  /* Change button background to soft rose */
+  background: #F8BBD0; /* light pink rose */
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+  fill: #C71585; /* medium violet red */
+  transition: all 800ms ease;
+}
+
+.text {
+  font-weight: 600;
+  color: #C71585; /* medium violet red */
+  font-size: medium;
+}
+
+.btn:hover {
+  /* Change hover to a warm gradient of pinks and purples */
+  background: linear-gradient(0deg, #FF69B4, #DB7093);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 182, 193, 0.4),
+    inset 0px -4px 0px 0px rgba(139, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 105, 180, 0.2),
+    0px 0px 180px 0px #FF1493; /* deep pink glow */
+  transform: translateY(-2px);
+}
+
+.btn:hover .text {
+  color: #FFF0F5; /* lavender blush */
+}
+
+.btn:hover .sparkle {
+  fill: #FFF0F5; /* lavender blush */
+  transform: scale(1.2);
+}
